@@ -26,4 +26,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+// Route::resource('test', TestController::class)
+//     ->only(['index'])
+//     ->middleware(['auth', 'verified']);
+
 require __DIR__.'/auth.php';
