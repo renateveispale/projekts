@@ -6,6 +6,8 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <script src="https://cdn.tailwindcss.com"></script>
         <script src="//unpkg.com/alpinejs" defer></script>
+        <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.4/dist/flowbite.min.css" />
+        <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
