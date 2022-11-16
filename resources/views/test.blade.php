@@ -54,10 +54,34 @@
             </ul>
 
         </div>
-</div>
+        </div>
                 </a>
               </li>
               
+
+              <a class="flex items-center px-4 py-2 mt-5 text-gray-600 rounded-md hover:bg-gray-200" href="#">
+
+                <!-- What is term -->
+                <div class="transition">
+                <!-- header -->
+                <div class="accordion-header cursor-pointer transition flex items-center">
+                    <i class="fas fa-plus"></i>
+                    <svg class="w-6 h-6 fill-indigo-500" height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg"><path d="M20 8h-12c-2.21 0-3.98 1.79-3.98 4l-.02 24c0 2.21 1.79 4 4 4h32c2.21 0 4-1.79 4-4v-20c0-2.21-1.79-4-4-4h-16l-4-4z"/><path d="M0 0h48v48h-48z" fill="none"/></svg>
+                    <span class="mx-4 font-medium text-indigo-500">Folders</span>
+                </div>
+                <!-- Content -->
+                <div class="accordion-content px-5 pt-0 overflow-hidden max-h-0">
+                    <ul class="px-5">
+                      <li>hello</li>
+                      <li>hello</li>
+                    </ul>
+        
+                </div>
+                </div>
+                        </a>
+                      </li>
+                      
+                    </ul>
             </ul>
 
           </aside>
