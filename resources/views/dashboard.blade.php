@@ -1,13 +1,8 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
 
     <div class="flex">
         <div class="flex flex-col w-64 h-screen px-4 py-8 overflow-y-auto border-r">
-          <h2 class="text-3xl font-semibold text-center text-indigo-500"><div>{{ Auth::user()->name }}</div></h2>
+          <h2 class="text-3xl font-semibold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-500"><div>{{ Auth::user()->name }}</div></h2>
   
   
           <div class="flex flex-col justify-between mt-6">
