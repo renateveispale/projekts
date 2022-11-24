@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Broadcast;
 Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
 });
+
+Broadcast::channel('post.created', function ($post) {
+   
+    info("Load from chanell");
+    
+    return (int) auth()->user()->id != (int) $post->user_id;
+
+});
