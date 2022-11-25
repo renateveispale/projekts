@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/pusher', function () {
+    return view('index2');
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -30,5 +34,6 @@ Route::get('/dashboard', function () {
 // Route::resource('test', TestController::class)
 //     ->only(['index'])
 //     ->middleware(['auth', 'verified']);
+
 
 require __DIR__.'/auth.php';

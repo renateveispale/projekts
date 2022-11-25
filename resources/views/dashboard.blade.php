@@ -61,6 +61,7 @@
         </div>
         <div class="w-full h-full p-4 m-8 overflow-y-auto">
           <livewire:live-text/> 
+
         </div>
     
     
