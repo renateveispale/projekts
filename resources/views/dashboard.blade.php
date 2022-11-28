@@ -60,8 +60,8 @@
           </div>
         </div>
         <div class="w-full h-full p-4 m-8 overflow-y-auto">
-          <livewire:live-text/> 
-
+          <textarea id = "input_field" rows="4" type="text" name="message" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300"></textarea>
+          <h1 id = "text-area">Text appears here</h1>
         </div>
     
     
@@ -73,6 +73,13 @@
   </style>
   
   <script>
+
+        $( "textarea" ).on("input", function() {
+            console.log( "Handler for .keypress() called." );
+            var value = $( this ).val();
+            $( "h1" ).text( value );
+        });
+
       const accordionHeader = document.querySelectorAll(".accordion-header");
       accordionHeader.forEach((header) => {
       header.addEventListener("click", function () {
@@ -92,6 +99,28 @@
           }
       });
       });
+
+	  // Enable pusher logging - don't include this in production
+	  // Pusher.logToConsole = true;
+
+	  var pusher = new Pusher('486966c05c3e722f0e09', {
+		    encrypted: true,
+        cluster: "eu",
+	  });
+
+	  // Subscribe to the channel we specified in our Laravel Event
+	  var channel = pusher.subscribe('status-liked');
+
+	  // Bind a function to a Event (the full Laravel class)
+	  channel.bind('App\\Events\\StatusLiked', function(data) {
+        var input_val = document.getElementById("text-area").innerHTML;
+        console.log(input_val);
+        document.getElementById("text-area").innerHTML = input_val + data.message;
+
+	  });
+	</script>
+
+
   </script>
 
 

@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,9 +23,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', function () {
-    return view('test');
-});
+Route::get('test', function () {
+	event(new App\Events\StatusLiked(Auth::user()->name));
+	return "Event has been sent!";
+})->middleware(['auth', 'verified']);
 
 
 Route::get('/dashboard', function () {
