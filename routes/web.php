@@ -3,7 +3,7 @@
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-
+use App\Http\Controllers\PostsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,7 +25,7 @@ Route::get('/', function () {
 
 Route::get('test', function () {
 	event(new App\Events\StatusLiked(Auth::user()->name));
-	return "Event has been sent!";
+	return view('welcome3');
 })->middleware(['auth', 'verified']);
 
 
@@ -37,5 +37,14 @@ Route::get('/dashboard', function () {
 //     ->only(['index'])
 //     ->middleware(['auth', 'verified']);
 
+Route::get('/test2', [TestController::class, 'index']);
+
+
+Route::group(['middleware' => 'auth'], function () {
+    // Route::get('/home', [PostsController::class, 'index'])->name('post');
+    // Route::post('/posts/create', [PostsController::class, 'store']);
+    // Route::put('/posts/{todo}', [PostsController::class, 'update']);
+    // Route::delete('/posts/{todo}', [PostsController::class, 'destroy']);
+});
 
 require __DIR__.'/auth.php';

@@ -16,8 +16,8 @@ class TestController extends Controller
      */
     public function index()
     {
-        // $user = Auth::user()->name;
-
+        // $user_id = Auth::user()->id;
+        
     }
 
     /**

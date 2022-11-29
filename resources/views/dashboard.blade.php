@@ -116,13 +116,9 @@
         var input_val = document.getElementById("text-area").innerHTML;
         console.log(input_val);
         document.getElementById("text-area").innerHTML = input_val + data.message;
+        
 
 	  });
 	</script>
-
-
-  </script>
-
-
     
 </x-app-layout>
