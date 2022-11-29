@@ -4,6 +4,7 @@ use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\PostsController;
+use App\Http\Livewire\Click;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,6 +42,7 @@ Route::get('/test2', [TestController::class, 'index']);
 
 
 Route::group(['middleware' => 'auth'], function () {
+    Route::get('check-click-event', Click::class);
     // Route::get('/home', [PostsController::class, 'index'])->name('post');
     // Route::post('/posts/create', [PostsController::class, 'store']);
     // Route::put('/posts/{todo}', [PostsController::class, 'update']);

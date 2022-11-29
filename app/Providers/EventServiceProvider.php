@@ -22,7 +22,9 @@ class EventServiceProvider extends ServiceProvider
 
         StatusLiked::class => [
             Liked::class,
-        ]
+        ],
+        
+
     ];
 
     /**

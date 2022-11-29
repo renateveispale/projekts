@@ -60,7 +60,7 @@
           </div>
         </div>
         <div class="w-full h-full p-4 m-8 overflow-y-auto">
-          <textarea id = "input_field" rows="4" type="text" name="message" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300"></textarea>
+          <textarea val = "Input" id = "input_field" rows="4" type="text" name="message" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300"></textarea>
           <h1 id = "text-area">Text appears here</h1>
         </div>
     
@@ -113,10 +113,10 @@
 
 	  // Bind a function to a Event (the full Laravel class)
 	  channel.bind('App\\Events\\StatusLiked', function(data) {
-        var input_val = document.getElementById("text-area").innerHTML;
+        var input_val = document.getElementById("input_field").value;
         console.log(input_val);
         document.getElementById("text-area").innerHTML = input_val + data.message;
-        
+        document.getElementById("input_field").value = input_val + data.message;
 
 	  });
 	</script>
