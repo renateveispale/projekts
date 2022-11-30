@@ -25,7 +25,6 @@ Route::get('/', function () {
 });
 
 Route::get('test', function () {
-	event(new App\Events\StatusLiked(Auth::user()->name));
 	return view('welcome3');
 })->middleware(['auth', 'verified']);
 
