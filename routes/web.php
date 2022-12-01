@@ -1,10 +1,13 @@
 <?php
 
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\PostsController;
 use App\Http\Livewire\Click;
+use App\Http\Livewire\ShowFile;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,12 +43,10 @@ Route::get('/dashboard', function () {
 Route::get('/test2', [TestController::class, 'index']);
 
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'auth', 'verified'], function () {
     Route::get('check-click-event', Click::class);
-    // Route::get('/home', [PostsController::class, 'index'])->name('post');
-    // Route::post('/posts/create', [PostsController::class, 'store']);
-    // Route::put('/posts/{todo}', [PostsController::class, 'update']);
-    // Route::delete('/posts/{todo}', [PostsController::class, 'destroy']);
+    Route::get('/test2', ShowFile::class);
+
 });
 
 require __DIR__.'/auth.php';

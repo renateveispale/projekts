@@ -2,7 +2,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.css" />
     <script src="//unpkg.com/alpinejs" defer></script>
 
-    <input id="{{ $trixId }}" type="hidden" name="content" value="{{ $value }}">
+    <input id="{{ $trixId }}" type="hidden" name="body" value="{{ $value }}">
     <trix-editor wire:ignore input="{{ $trixId }}"></trix-editor>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.js"></script>
@@ -10,16 +10,16 @@
         var trixEditor = document.getElementById("{{ $trixId }}")
         var mimeTypes = ["image/png", "image/jpeg", "image/jpg"];
 
-        
+
         addEventListener("keypress", event => {
             if (event.key === "Enter") {
                 @this.set('value', trixEditor.getAttribute('value'));
             };
         });
-    
-        addEventListener("trix-change", function(event) {
-            @this.set('value', trixEditor.getAttribute('value'))
-        });
+
+        // addEventListener("trix-change", function(event) {
+        //     @this.set('value', trixEditor.getAttribute('value'))
+        // });
 
         addEventListener("trix-blur", function(event) {
             @this.set('value', trixEditor.getAttribute('value'))
