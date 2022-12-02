@@ -3,16 +3,16 @@
     <div class="flex">
         <div class="flex flex-col w-64 h-screen px-4 py-8 overflow-y-auto border-r">
           <h2 class="text-3xl font-semibold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-500"><div>{{ Auth::user()->name }}</div></h2>
-  
-  
+
+
           <div class="flex flex-col justify-between mt-6">
             <aside>
               <ul>
-    
+
           <div class="transition">
           <!-- header -->
           <div class="accordion-header px-4 py-2 mt-5 cursor-pointer transition flex items-center rounded-md hover:bg-gray-200">
-  
+
               <i class="fas fa-plus"></i>
               {{-- list name --}}
               <svg class="w-6 h-6 fill-indigo-500" height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg"><path d="M20 8h-12c-2.21 0-3.98 1.79-3.98 4l-.02 24c0 2.21 1.79 4 4 4h32c2.21 0 4-1.79 4-4v-20c0-2.21-1.79-4-4-4h-16l-4-4z"/><path d="M0 0h48v48h-48z" fill="none"/></svg>
@@ -25,12 +25,12 @@
                 <li>hello</li>
                 <li>hello</li>
               </ul>
-  
+
           </div>
           </div>
                   </a>
                 </li>
-              
+
                   <div class="transition">
                   <!-- header -->
                   <div class="accordion-header px-4 py-2 mt-5 cursor-pointer transition flex items-center rounded-md hover:bg-gray-200">
@@ -46,32 +46,37 @@
                         <li>hello</li>
                         <li>hello</li>
                       </ul>
-          
+
                   </div>
                   </div>
                           </a>
                         </li>
-                        
+
                       </ul>
               </ul>
-  
+
             </aside>
-            
+
           </div>
         </div>
+
+
+
         <div class="w-full h-full p-4 m-8 overflow-y-auto">
           <textarea val = "Input" id = "input_field" rows="4" type="text" name="message" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300"></textarea>
-          <h1 id = "text-area">Text appears here</h1>
-        </div>
-    
-    
-  
+          <h1 id = "text-area">@livewire('show-file')</h1>
+
+
+
+
+
+
   <style>
       .accordion-content {
       transition: max-height 0.3s ease-out, padding 0.3s ease;
       }
   </style>
-  
+
   <script>
 
         $( "textarea" ).on("input", function() {
@@ -85,7 +90,7 @@
       header.addEventListener("click", function () {
           const accordionContent = header.parentElement.querySelector(".accordion-content");
           let accordionMaxHeight = accordionContent.style.maxHeight;
-  
+
           // Condition handling
           if (accordionMaxHeight == "0px" || accordionMaxHeight.length == 0) {
           accordionContent.style.maxHeight = `${accordionContent.scrollHeight + 32}px`;
@@ -95,7 +100,6 @@
           accordionContent.style.maxHeight = `0px`;
           header.querySelector(".fas").classList.add("fa-plus");
           header.querySelector(".fas").classList.remove("fa-minus");
-  
           }
       });
       });
@@ -120,5 +124,5 @@
 
 	  });
 	</script>
-    
+
 </x-app-layout>

@@ -5,6 +5,10 @@ use Illuminate\Support\Facades\Auth;
 use App\Events\StatusLiked;
 use App\Models\File;
 
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+
 class Click extends Component
 {
     public $msg = '';

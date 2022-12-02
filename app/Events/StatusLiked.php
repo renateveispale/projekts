@@ -10,7 +10,11 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-
+use App\Models\File;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class StatusLiked implements ShouldBroadcast
 {
@@ -27,8 +31,14 @@ class StatusLiked implements ShouldBroadcast
 	 */
 	public function __construct($username)
 	{
-		$this->username = $username;
-		$this->message  = " {$username} says hi";
+        $files = DB::table('files')->get();
+
+        foreach ($files as $file) {
+            $body = $file->body;
+
+            $this->username = $username;
+            $this->message  = $body;
+        }
 	}
 
 	/**
