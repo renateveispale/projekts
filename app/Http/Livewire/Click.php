@@ -17,11 +17,12 @@ class Click extends Component
     public $title;
     public $body;
 
+    //returns click blade when page/component is rendered
     public function render()
     {
         return view('livewire.click');
     }
-
+    //when clicked publishes event that outputs message in the output area
     public function trackClickEvt($userId)
     {
         $this->msg = $userId;

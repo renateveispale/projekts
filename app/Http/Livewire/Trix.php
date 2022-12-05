@@ -23,6 +23,7 @@ class Trix extends Component
         $this->trixId = 'trix-' . uniqid();
     }
 
+    // emits event on updated trix editor
     public function updatedValue($value){
         $this->emit(self::EVENT_VALUE_UPDATED, $this->value);
         $this->emit(event(new StatusLiked(Auth::user()->name)));

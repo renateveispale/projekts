@@ -42,7 +42,7 @@ Route::get('/dashboard', function () {
 
 Route::get('/test2', [TestController::class, 'index']);
 
-
+//requires login for every route accessed
 Route::group(['middleware' => 'auth', 'verified'], function () {
     Route::get('check-click-event', Click::class);
     Route::get('/test2', ShowFile::class);

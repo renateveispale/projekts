@@ -9,7 +9,7 @@ class ShowFile extends Component
 {
     public function render()
     {
-
+        //returns all files from db
         return view('livewire.show-file', [
             'files' => File::all()
         ]);

@@ -32,7 +32,7 @@ class Post extends Component
         //     'body' => $this->body
         // ]);
 
-
+            //creates new file
         $file = new File();
 
         $file->user_id = Auth::user()->id;
@@ -51,6 +51,7 @@ class Post extends Component
 
         // dd($check_file_count);
 
+        //updates file with new body and title
         if ( count($check_file_count) > 0){
             DB::table('files')
             ->where('user_id', Auth::user()->id)
@@ -59,12 +60,16 @@ class Post extends Component
 
         // File::where('user_id',  Auth::user()->id)
         // ->update([$body->body]);
+
+        //saves file to database
         else{
             $file->save();
             dd($check_file_count);
         }
     }
 
+
+    //returns post view on render
     public function render()
     {
         return view('livewire.post');

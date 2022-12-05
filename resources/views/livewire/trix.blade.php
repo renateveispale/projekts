@@ -11,16 +11,20 @@
         var mimeTypes = ["image/png", "image/jpeg", "image/jpg"];
 
 
+
+        //when enter is pressed it updates value
         addEventListener("keypress", event => {
             if (event.key === "Enter") {
                 @this.set('value', trixEditor.getAttribute('value'));
             };
         });
 
+        // when value in editor changes it updates output valu
         // addEventListener("trix-change", function(event) {
         //     @this.set('value', trixEditor.getAttribute('value'))
         // });
-
+        
+        //when user goes outside of the text editor, it updates the values
         addEventListener("trix-blur", function(event) {
             @this.set('value', trixEditor.getAttribute('value'))
         });
