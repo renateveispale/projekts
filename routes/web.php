@@ -46,6 +46,8 @@ Route::get('/test2', [TestController::class, 'index']);
 Route::group(['middleware' => 'auth', 'verified'], function () {
     Route::get('check-click-event', Click::class);
     Route::get('/test2', ShowFile::class);
+    Route::get('/post', ShowPosts::class);
+    Route::get('/post/{id}', ShowPost::class);
 
 });
 

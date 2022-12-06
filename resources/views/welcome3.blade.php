@@ -24,5 +24,9 @@
 
 @livewire('post')
 
+{{-- <div>
+  <livewire:show-post :post="$post">
+</div> --}}
+
 @livewireScripts
 </body>
