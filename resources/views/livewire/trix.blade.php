@@ -2,7 +2,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.css" />
     <script src="//unpkg.com/alpinejs" defer></script>
 
-    <input id="{{ $trixId }}" type="hidden" name="body" value="{{ $value }}">
+    <input id="{{ $trixId }}" class = "input_field" type="hidden" name="body" value="{{ $value }}">
     <trix-editor wire:ignore input="{{ $trixId }}"></trix-editor>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.js"></script>
@@ -20,10 +20,10 @@
         });
 
         // when value in editor changes it updates output valu
-        // addEventListener("trix-change", function(event) {
-        //     @this.set('value', trixEditor.getAttribute('value'))
-        // });
-        
+        addEventListener("trix-change", function(event) {
+            @this.set('value', trixEditor.getAttribute('value'))
+        });
+
         //when user goes outside of the text editor, it updates the values
         addEventListener("trix-blur", function(event) {
             @this.set('value', trixEditor.getAttribute('value'))

@@ -16,8 +16,8 @@
                         <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
                             Login
                         </span>
-                    </a>     
-                    
+                    </a>
+
                     <a href = "/register" class="transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-white rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
                         <span class="relative px-5 py-2.5 rounded-md group-hover:bg-opacity-0">
                             Register Now
@@ -37,7 +37,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
                 </svg>
             </div>
-        
+
         </div>
     </div>
 
@@ -46,10 +46,10 @@
             <div class="block rounded-lg px-6 py-12 md:py-16 md:px-12">
 
                 <div class="grid grid-cols-3 gap-16">
-                    <div class="col-span-2">   
+                    <div class="col-span-2">
 
                         <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus. 
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus.
                             <span class="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">
                             Lorem ipsum dolor sit amet.
                             </span>
