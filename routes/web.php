@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\PostsController;
 use App\Http\Livewire\Click;
+use App\Http\Livewire\CreateFile;
 use App\Http\Livewire\ShowPosts;
 use App\Http\Livewire\ShowFile;
 
@@ -46,7 +47,8 @@ Route::get('/test2', [TestController::class, 'index']);
 //requires login for every route accessed
 Route::group(['middleware' => 'auth', 'verified'], function () {
     Route::get('check-click-event', Click::class);
-    Route::get('/test2', ShowFile::class);
+    Route::get('/files', ShowFile::class);
+    // Route::get('/files/add', CreateFile::class);
     // Route::get('/post', ShowPosts::class);
     // Route::get('/post/{id}', ShowPosts::class);
 

@@ -60,7 +60,6 @@
                     <div class="max-w-sm p-6 bg-gradient-to-r from-indigo-50 border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
 
                         <div role="status" class=" p-5 mb-3 max-w-sm animate-pulse">
-                            <div class="h-2.5 bg-gray-600 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
                             <div class="h-2 bg-gray-600 rounded-full dark:bg-gray-700 max-w-[360px] mb-2.5"></div>
                             <div class="h-2 bg-gray-600 rounded-full dark:bg-gray-700 mb-2.5"></div>
                             <div class="h-2 bg-gray-600 rounded-full dark:bg-gray-700 max-w-[330px] mb-2.5"></div>
