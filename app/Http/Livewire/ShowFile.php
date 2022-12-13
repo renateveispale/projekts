@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\File;
+use Illuminate\Support\Facades\DB;
 
 class ShowFile extends Component
 {
@@ -11,8 +12,11 @@ class ShowFile extends Component
     {
         //returns all files from db
         return view('livewire.show-file', [
-            'files' => File::all()
+            'files' => DB::table('files')
+            ->join('users', 'users.id', '=', 'files.user_id')
+            ->get()
         ]);
+
 
     }
 }
