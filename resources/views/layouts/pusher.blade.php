@@ -10,13 +10,10 @@ var pusher = new Pusher('486966c05c3e722f0e09', {
 
 	  // Bind a function to a Event (the full Laravel class)
 	  channel.bind('App\\Events\\StatusLiked', function(data) {
-        var input_val = document.getElementById("input_field").value;
-        console.log(input_val);
-        document.getElementById("text-area").innerHTML = "";
-        document.getElementById("input_field").innerHTML = "";
-        document.getElementById("text-area").innerHTML = input_val + data.message;
-        document.getElementById("input_field").value = input_val + data.message;
+        var input_val = document.getElementById("text-area").value;
+        console.log(data);
 
+        document.getElementById("text-area").innerHTML = data.message;
+        document.getElementById("title-area").innerHTML = data.title;
 	  });
-
 </script>

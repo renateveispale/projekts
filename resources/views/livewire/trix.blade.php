@@ -20,14 +20,18 @@
         });
 
         // when value in editor changes it updates output valu
-        addEventListener("trix-change", function(event) {
-            @this.set('value', trixEditor.getAttribute('value'))
-        });
+        // addEventListener("trix-change", function(event) {
+        //     @this.set('value', trixEditor.getAttribute('value'))
+        // });
+
+        // addEventListener("keyup", event => {
+        //         @this.set('value', trixEditor.getAttribute('value'));
+        // });
 
         //when user goes outside of the text editor, it updates the values
-        addEventListener("trix-blur", function(event) {
-            @this.set('value', trixEditor.getAttribute('value'))
-        });
+        // addEventListener("trix-blur", function(event) {
+        //     @this.set('value', trixEditor.getAttribute('value'))
+        // });
 
         addEventListener("trix-file-accept", function(event) {
             if (! mimeTypes.includes(event.file.type) ) {
@@ -35,6 +39,7 @@
                 return event.preventDefault();
             }
         });
+
 
         addEventListener("trix-attachment-add", function(event){
             uploadTrixImage(event.attachment);

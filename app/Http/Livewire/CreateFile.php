@@ -17,7 +17,7 @@ class Files extends Component
      */
     public function render()
     {
-        $this->files = File::all();
+        // $this->files = File::all();
         return view('livewire.files');
     }
 
@@ -57,12 +57,12 @@ class Files extends Component
      */
     public function edit($id)
     {
-        $file = File::findOrFail($id);
-        $this->file_id = $id;
-        $this->title = $file->title;
-        $this->body = $file->body;
+        // $file = File::findOrFail($id);
+        // $this->file_id = $id;
+        // $this->title = $file->title;
+        // $this->body = $file->body;
 
-        $this->updateMode = true;
+        // $this->updateMode = true;
     }
 
     /**
@@ -83,21 +83,21 @@ class Files extends Component
      */
     public function update()
     {
-        $validatedDate = $this->validate([
-            'title' => 'required',
-            'body' => 'required',
-        ]);
+        // $validatedDate = $this->validate([
+        //     'title' => 'required',
+        //     'body' => 'required',
+        // ]);
 
-        $file = File::find($this->file_id);
-        $file->update([
-            'title' => $this->title,
-            'body' => $this->body,
-        ]);
+        // $file = File::find($this->file_id);
+        // $file->update([
+        //     'title' => $this->title,
+        //     'body' => $this->body,
+        // ]);
 
-        $this->updateMode = false;
+        // $this->updateMode = false;
 
-        session()->flash('message', 'File Updated Successfully.');
-        $this->resetInputFields();
+        // session()->flash('message', 'File Updated Successfully.');
+        // $this->resetInputFields();
     }
 
     /**

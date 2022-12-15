@@ -23,11 +23,10 @@ class Click extends Component
         return view('livewire.click');
     }
     //when clicked publishes event that outputs message in the output area
-    public function trackClickEvt($userId)
+    public function trackClickEvt()
     {
-        $this->msg = $userId;
         $this->emit(self::EVENT_VALUE_UPDATED, $this->value);
-        $this->emit(event(new StatusLiked(Auth::user()->name)));
+        $this->emit(event(new StatusLiked(Auth::user()->name, $this->body, $this->title)));
 
     }
 

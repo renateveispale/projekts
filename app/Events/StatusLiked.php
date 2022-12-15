@@ -21,7 +21,7 @@ class StatusLiked implements ShouldBroadcast
 	use Dispatchable, InteractsWithSockets, SerializesModels;
 
 	public $username;
-
+    public $title;
 	public $message;
 
 	/**
@@ -29,16 +29,16 @@ class StatusLiked implements ShouldBroadcast
 	 *
 	 * @return void
 	 */
-	public function __construct($username)
+	public function __construct($username, $message, $title)
 	{
-        $files = DB::table('files')->get();
+        // $files = DB::table('files')->get();
 
-        foreach ($files as $file) {
-            $body = $file->body;
+        // foreach ($files as $file) {
+
 
             $this->username = $username;
-            $this->message  = $body;
-        }
+            $this->message  = "{$message}";
+            $this->title  = "{$title}";
 	}
 
 	/**

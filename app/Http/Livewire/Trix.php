@@ -15,6 +15,7 @@ class Trix extends Component
     const EVENT_VALUE_UPDATED = 'trix_value_updated';
 
     public $value;
+    public $title;
     public $trixId;
     public $photos = [];
 
@@ -26,7 +27,7 @@ class Trix extends Component
     // emits event on updated trix editor
     public function updatedValue($value){
         $this->emit(self::EVENT_VALUE_UPDATED, $this->value);
-        $this->emit(event(new StatusLiked(Auth::user()->name)));
+        $this->emit(event(new StatusLiked(Auth::user()->name, $this->value, $this->title)));
     }
 
     public function completeUpload(string $uploadedUrl, string $trixUploadCompletedEvent){
@@ -50,6 +51,6 @@ class Trix extends Component
     public function render()
     {
         return view('livewire.trix');
-        
+
     }
 }
