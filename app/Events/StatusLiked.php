@@ -29,7 +29,7 @@ class StatusLiked implements ShouldBroadcast
 	 *
 	 * @return void
 	 */
-	public function __construct($username, $message, $title)
+	public function __construct($username, $message)
 	{
         // $files = DB::table('files')->get();
 
@@ -38,7 +38,6 @@ class StatusLiked implements ShouldBroadcast
 
             $this->username = $username;
             $this->message  = "{$message}";
-            $this->title  = "{$title}";
 	}
 
 	/**

@@ -23,7 +23,6 @@ class Post extends Component
 
     public function trix_value_updated($value){
         $this->body = $value;
-
     }
 
     public function save(){

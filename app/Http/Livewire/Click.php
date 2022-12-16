@@ -26,7 +26,7 @@ class Click extends Component
     public function trackClickEvt()
     {
         $this->emit(self::EVENT_VALUE_UPDATED, $this->value);
-        $this->emit(event(new StatusLiked(Auth::user()->name, $this->body, $this->title)));
+        $this->emit(event(new StatusLiked(Auth::user()->name, $this->body)));
 
     }
 

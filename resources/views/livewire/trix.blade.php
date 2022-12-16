@@ -2,6 +2,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.css" />
     <script src="//unpkg.com/alpinejs" defer></script>
 
+    <div>
+        <label for="title" style="display:block">Title</label>
+        <input type="text" style="border:1px solid #ccc" id= "title" name="title" wire:model.lazy="title">
+    </div>
+
+    <label for="body">Body</label>
     <input id="{{ $trixId }}" class = "input_field" type="hidden" name="body" value="{{ $value }}">
     <trix-editor wire:ignore input="{{ $trixId }}"></trix-editor>
 
@@ -11,11 +17,12 @@
         var mimeTypes = ["image/png", "image/jpeg", "image/jpg"];
 
 
-
         //when enter is pressed it updates value
         addEventListener("keypress", event => {
+            var title = document.getElementById("title").value;
             if (event.key === "Enter") {
                 @this.set('value', trixEditor.getAttribute('value'));
+                console.log(title);
             };
         });
 

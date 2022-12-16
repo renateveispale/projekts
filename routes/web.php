@@ -46,7 +46,7 @@ Route::get('/test2', [TestController::class, 'index']);
 
 //requires login for every route accessed
 Route::group(['middleware' => 'auth', 'verified'], function () {
-    Route::get('check-click-event', Click::class);
+    // Route::get('check-click-event', Click::class);
     Route::get('/files', ShowFile::class);
     // Route::get('/files/add', CreateFile::class);
     // Route::get('/post', ShowPosts::class);
