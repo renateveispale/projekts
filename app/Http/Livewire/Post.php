@@ -43,7 +43,7 @@ class Post extends Component
         // $fileList = File::where('id', '>', 0)->get();
         // $fileCount = $fileList->count();
 
-        // // $file->save();
+        // $file->save();
         // $check_file_count = DB::table("files")
         // ->where("user_id", "=", Auth::user()->id) // "=" is optional
         // ->get();

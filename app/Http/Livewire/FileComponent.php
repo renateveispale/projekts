@@ -4,8 +4,11 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\File;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
-class Files extends Component
+class FileComponent extends Component
 {
     public $files, $title, $body, $file_id;
     public $updateMode = false;
@@ -17,8 +20,8 @@ class Files extends Component
      */
     public function render()
     {
-        // $this->files = File::all();
-        return view('livewire.files');
+        $this->files = File::all();
+        return view('livewire.file-component');
     }
 
     /**
@@ -43,7 +46,17 @@ class Files extends Component
             'body' => 'required',
         ]);
 
-        File::create($validatedDate);
+        // File::create(['user_id' => Auth::user()->id]);
+
+
+        $file = new File();
+
+        $file->user_id = Auth::user()->id;
+
+        $title = $file->title = $this->title;
+        $body = $file->body = $this->body;
+        $timestamp = Carbon::now()->toDateTimeString();
+        $file->save();
 
         session()->flash('message', 'File Created Successfully.');
 
@@ -57,12 +70,12 @@ class Files extends Component
      */
     public function edit($id)
     {
-        // $file = File::findOrFail($id);
-        // $this->file_id = $id;
-        // $this->title = $file->title;
-        // $this->body = $file->body;
+        $file = File::findOrFail($id);
+        $this->file_id = $id;
+        $this->title = $file->title;
+        $this->body = $file->body;
 
-        // $this->updateMode = true;
+        $this->updateMode = true;
     }
 
     /**
@@ -83,21 +96,21 @@ class Files extends Component
      */
     public function update()
     {
-        // $validatedDate = $this->validate([
-        //     'title' => 'required',
-        //     'body' => 'required',
-        // ]);
+        $validatedDate = $this->validate([
+            'title' => 'required',
+            'body' => 'required',
+        ]);
 
-        // $file = File::find($this->file_id);
-        // $file->update([
-        //     'title' => $this->title,
-        //     'body' => $this->body,
-        // ]);
+        $file = File::find($this->file_id);
+        $file->update([
+            'title' => $this->title,
+            'body' => $this->body,
+        ]);
 
-        // $this->updateMode = false;
+        $this->updateMode = false;
 
-        // session()->flash('message', 'File Updated Successfully.');
-        // $this->resetInputFields();
+        session()->flash('message', 'File Updated Successfully.');
+        $this->resetInputFields();
     }
 
     /**

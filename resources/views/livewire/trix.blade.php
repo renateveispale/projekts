@@ -22,7 +22,6 @@
             });
 
             addEventListener("keyup", event => {
-                console.log(keypress_count);
                 keypress_count++;
                 if (keypress_count > 5){
                     var title = document.getElementById("title").value;
@@ -38,7 +37,6 @@
         //     @this.set('value', trixEditor.getAttribute('value'))
         //     @this.set('title', title);
         // });
-
 
         // when value in editor changes it updates output valu
         // addEventListener("trix-change", function(event) {
