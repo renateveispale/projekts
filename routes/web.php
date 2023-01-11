@@ -46,6 +46,9 @@ Route::get('/test2', [TestController::class, 'index']);
 Route::group(['middleware' => 'auth', 'verified'], function () {
     // Route::get('check-click-event', Click::class);
     Route::get('/files', FileComponent::class);
+    Route::view('/home', 'home');
+    Route::get('post/create', \App\Http\Livewire\PostCreate::class);
+    Route::get('post/{slug}', \App\Http\Livewire\ShowPost::class);
 
     // Route::get('/files/add', CreateFile::class);
     // Route::get('/post', ShowPosts::class);
