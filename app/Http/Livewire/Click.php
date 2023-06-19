@@ -25,8 +25,10 @@ class Click extends Component
     //when clicked publishes event that outputs message in the output area
     public function trackClickEvt()
     {
-        $this->emit(self::EVENT_VALUE_UPDATED, $this->value);
-        $this->emit(event(new StatusLiked(Auth::user()->name, $this->body, $this->title)));
+        // $this->emit(self::EVENT_VALUE_UPDATED, $this->value);
+        // $this->emit(event(new StatusLiked(Auth::user()->name, $this->body, $this->title)));
+        
+
 
     }
 

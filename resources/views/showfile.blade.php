@@ -1,7 +1,7 @@
 @include('layouts.header')
 @include("layouts.sidebar")
 
-<livewire:show-file >
+<livewire:show-post>
 
 
 @livewireScripts

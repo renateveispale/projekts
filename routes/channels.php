@@ -24,3 +24,7 @@ Broadcast::channel('post.created', function ($post) {
     return (int) auth()->user()->id != (int) $post->user_id;
 
 });
+
+Broadcast::channel('notification-send', function ($user) {
+    return true;
+}); 

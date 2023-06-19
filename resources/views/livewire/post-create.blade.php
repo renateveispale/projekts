@@ -30,13 +30,13 @@
                     <input id="title" wire:model="post.title" name="title" class="block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                 </div>
             </div>
-            <div class="sm:col-span-6 pt-5">
+            {{-- <div class="sm:col-span-6 pt-5">
                 <label for="body" class="block text-sm font-medium text-gray-700">Body</label>
                 <div class="mt-1">
                     <textarea id="body" rows="3" wire:model="post.body" class="shadow-sm focus:ring-indigo-500 appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"></textarea>
                 </div>
                 <p class="mt-2 text-sm text-gray-500">Add the body for your post.</p>
-            </div>
+            </div> --}}
             <div wire:click="savePost" class="inline-flex justify-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-indigo-500 border border-transparent rounded-md hover:bg-indigo-600 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 cursor-pointer">Submit Post</div>
         </div>
     </div>

@@ -13,8 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('folders', function (Blueprint $table) {
+        Schema::create('collaborators', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('posts_id');
+            $table->unsignedBigInteger('user_id');
+
+            $table->foreign('posts_id')->references('id')
+            ->on('posts')->onDelete('cascade');
+            
+            $table->foreign('user_id')->references('id')
+            ->on('users')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
@@ -26,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('folders');
+        Schema::dropIfExists('collaborators');
     }
 };

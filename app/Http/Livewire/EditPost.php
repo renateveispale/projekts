@@ -36,20 +36,12 @@ class PostCreate extends Component
         $this->emit(event(new StatusLiked(Auth::user()->name, $this->post->body, $this->post->title)));
         $this->saveSuccess = true;
 
-        // File::where('user_id',  Auth::user()->id)
-        // ->update([$body->body]);
-
-
-
-        // $this->post->user_id = Auth::user()->id;
-
-        // $this->emit(event(new StatusLiked(Auth::user()->name, $this->post->body, $this->post->title)));
-        // $this->saveSuccess = true;
     }
     
+
     public function render()
     {
-        return view('livewire.edit-post');
+        return view('livewire.show-post');
     }
 
     

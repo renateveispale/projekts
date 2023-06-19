@@ -9,13 +9,13 @@ use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
+use App\Listeners\SendPostInfo;
 
 use App\Models\File;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
-
 class StatusLiked implements ShouldBroadcast
 {
 	use Dispatchable, InteractsWithSockets, SerializesModels;
@@ -31,10 +31,6 @@ class StatusLiked implements ShouldBroadcast
 	 */
 	public function __construct($username, $message, $title)
 	{
-        // $files = DB::table('files')->get();
-
-        // foreach ($files as $file) {
-
 
             $this->username = $username;
             $this->message  = "{$message}";

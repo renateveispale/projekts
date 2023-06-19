@@ -12,7 +12,9 @@ class ShowAllPosts extends Component
 
     public function render()
     {
-        $posts = DB::table('posts')->where('user_id', Auth::user()->id)->get();
+        $posts = DB::table('posts')
+        ->join('users', 'users.id', '=', 'posts.user_id')
+        ->where('user_id', Auth::user()->id)->orderBy('posts.created_at', 'desc')->get();
         return view('livewire.show-all-posts', ['posts' => $posts]);
     }
 }
