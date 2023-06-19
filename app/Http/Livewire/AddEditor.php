@@ -3,20 +3,22 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-
+use App\Models\Posts;
+use App\Models\Collaborators;
+use Illuminate\Support\Str;
+use App\Events\StatusLiked;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 class AddEditor extends Component
 {
     public function render()
     {
-        return view('livewire.add-editor');
+        $posts = DB::table('posts')->orderBy('created_at', 'desc')->limit(5)->get();
+
+        return view('livewire.add-editor', ['posts' => $posts]);
     }
 
-    // public function addCollab(){
 
-    //     $username = $this->collab->username;
-    //     $collaborators = DB::table('collaborators')->join('users', 'users.id', '=', 'collaborators.user_id');
-
-    //     dd($collaborators);
-    // }
 
 }

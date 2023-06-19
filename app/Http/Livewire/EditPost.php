@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
-class PostCreate extends Component
+class EditPost extends Component
 {
     public $saveSuccess = false;
     public $post;

@@ -98,6 +98,7 @@ class ShowPost extends Component
                 // dd($isEditor[$key]->user_id);
                 DB::table('posts')
                     ->where('user_id', Auth::user()->id)
+                    ->where('id', $post_id)
                     ->update(['featured' => 1, 'updated_at' => $timestamp]);
             }
         }
