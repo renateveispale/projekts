@@ -13,7 +13,6 @@ var pusher = new Pusher('486966c05c3e722f0e09', {
 
 	  // Bind a function to a Event (the full Laravel class)
 	  channel.bind('App\\Events\\StatusLiked', function(data) {
-		pusher.trigger("status-liked", "my-event", { message: "hello world" });
 
         console.log(data);
 

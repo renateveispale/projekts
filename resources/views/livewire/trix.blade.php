@@ -1,4 +1,4 @@
-{{-- <div wire:ignore>
+<div wire:ignore>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.css" />
     <script src="//unpkg.com/alpinejs" defer></script>
 
@@ -49,4 +49,4 @@
         // });
 
     </script>
-</div> --}}
+</div>

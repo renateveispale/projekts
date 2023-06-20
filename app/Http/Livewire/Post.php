@@ -17,7 +17,7 @@ class Post extends Component
     public $body;
 
     public $listeners = [
-        // Trix::EVENT_VALUE_UPDATED // trix_value_updated()
+        Trix::EVENT_VALUE_UPDATED // trix_value_updated()
 
     ];
 

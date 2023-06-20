@@ -19,6 +19,4 @@ class AddEditor extends Component
         return view('livewire.add-editor', ['posts' => $posts]);
     }
 
-
-
 }
