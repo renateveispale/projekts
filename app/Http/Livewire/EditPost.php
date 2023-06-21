@@ -20,6 +20,10 @@ class EditPost extends Component
         'post.body' => 'required|min:1',
     ];
 
+    // public $listeners = [
+    //     Trix::EVENT_VALUE_UPDATED // trix_value_updated()
+    // ];
+
     public function editPost(){
         
         $title = $this->post->title;
@@ -31,6 +35,7 @@ class EditPost extends Component
 
         DB::table('posts')
             ->where('user_id', Auth::user()->id)
+            ->where('slug', $slug)
             ->update(['body' => $body, 'title' => $title, 'updated_at' => $timestamp]);
 
         $this->emit(event(new StatusLiked(Auth::user()->name, $this->post->body, $this->post->title)));

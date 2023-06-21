@@ -10,9 +10,13 @@ use App\Models\Collaborators;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
+use function PHPUnit\Framework\isNull;
+
 class PostCreate extends Component
 {
     public $saveSuccess = false;
+    public $errormessage = false;
+
     public $post;
     public $collaborators;
 
@@ -28,26 +32,34 @@ class PostCreate extends Component
 
     public function savePost(){
         
-        $this->post->user_id = Auth::user()->id;
-        $new_slug = Str::slug($this->post->title);
-        $existing_posts = DB::table('posts')->where('slug', $new_slug)->get();
-
-        if (count($existing_posts) > 0) {
-            $this->post->slug = Str::slug($this->post->title . '-' . Str::random());
+        if($this->post->title == null){
+            $this->errormessage = true;
         }
+
         else{
-            $this->post->slug = $new_slug;
+
+            $this->post->user_id = Auth::user()->id;
+            $new_slug = Str::slug($this->post->title);
+            $existing_posts = DB::table('posts')->where('slug', $new_slug)->get();
+
+            if (count($existing_posts) > 0) {
+                $this->post->slug = Str::slug($this->post->title . '-' . Str::random());
+            }
+            else{
+                $this->post->slug = $new_slug;
+            }
+
+            $this->post->save();
+            $this->emit(event(new StatusLiked(Auth::user()->name, $this->post->body, $this->post->title)));
+            $this->saveSuccess = true;
+
+
+            $this->collaborators->user_id = Auth::user()->id;
+            $this->collaborators->posts_id = $this->post->id;
+            $this->collaborators->save();
+
+            return redirect('/dashboard');
         }
-        $this->post->save();
-        $this->emit(event(new StatusLiked(Auth::user()->name, $this->post->body, $this->post->title)));
-        $this->saveSuccess = true;
-
-
-        $this->collaborators->user_id = Auth::user()->id;
-        $this->collaborators->posts_id = $this->post->id;
-        $this->collaborators->save();
-
-        return redirect('/dashboard');
     }
     
     public function render()

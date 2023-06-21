@@ -18,6 +18,9 @@
                 if (event.key === "Enter") {
                     @this.set('value', trixEditor.getAttribute('value'));
                     @this.set('title', title);
+
+                    $("#title").append("<b>Appended text</b>");
+
                 };
             });
 
@@ -32,21 +35,7 @@
                 }
             });
 
-        // when user goes outside of the text editor, it updates the values
-        // addEventListener("trix-blur", function(event) {
-        //     var title = document.getElementById("title").value;
-        //     @this.set('value', trixEditor.getAttribute('value'))
-        //     @this.set('title', title);
-        // });
 
-        // when value in editor changes it updates output valu
-        // addEventListener("trix-change", function(event) {
-        //     @this.set('value', trixEditor.getAttribute('value'))
-        // });
-
-        // addEventListener("keyup", event => {
-        //         @this.set('value', trixEditor.getAttribute('value'));
-        // });
 
     </script>
 </div>

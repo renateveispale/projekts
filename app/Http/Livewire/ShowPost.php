@@ -25,6 +25,7 @@ class ShowPost extends Component
 
     public function render()
     {
+        
         $user_id = $this->post->user_id;
         $posts = DB::table('posts')->where('user_id', Auth::user()->id)->get();
         
@@ -61,8 +62,8 @@ class ShowPost extends Component
             ->where('slug', $slug)
             ->update(['body' => $body, 'title' => $title, 'updated_at' => $timestamp]);
 
-        // $this->emit(event(new StatusLiked(Auth::user()->name, $this->post->body, $this->post->title)));
-        $this->saveSuccess = true;
+            $this->emit(event(new StatusLiked(Auth::user()->name, $this->post->body, $this->post->title)));
+            $this->saveSuccess = true;
 
     }
 
@@ -102,7 +103,7 @@ class ShowPost extends Component
                     ->update(['featured' => 1, 'updated_at' => $timestamp]);
             }
         }
-        
+        $this->saveSuccess = true;
 
     }
 

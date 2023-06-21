@@ -18,19 +18,17 @@ class Post extends Component
 
     public $listeners = [
         Trix::EVENT_VALUE_UPDATED // trix_value_updated()
-
     ];
 
     public function trix_value_updated($value){
         $this->body = $value;
-    }
+        // $this->title = $title;
+        $timestamp = Carbon::now()->toDateTimeString();
 
-    public function save(){
-        dd([
-            'title' => $this->title,
-            'body' => $this->body
-        ]);
+        DB::table('posts')
+        ->where('user_id', Auth::user()->id)
+        ->update(['body' => $value, 'updated_at' => $timestamp]);
     }
 
 }
-    //returns post view on render
+
